@@ -7,6 +7,7 @@
     ".": "./index.ts",
     "./money": "./money.ts",
     "./schemas": "./schemas.ts",
+    "./modifiers": "./modifiers.ts",
     "./order-status": "./order-status.ts"
   },
   "scripts": {

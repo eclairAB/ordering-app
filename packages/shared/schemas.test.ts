@@ -54,6 +54,8 @@ describe('MenuItem', () => {
     const item = {
       id: 1,
       name: 'Latte',
+      description: '',
+      imageUrl: null,
       priceCentavos: -100,
       categoryId: 1,
       available: true,

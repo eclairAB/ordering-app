@@ -8,10 +8,13 @@
   },
   "scripts": {
     "dev": "pnpm -r --parallel --if-present dev",
+    "build": "pnpm -r --if-present build",
+    "start": "pnpm --filter @ordering/server start",
     "test": "pnpm -r --if-present test",
     "lint": "eslint .",
     "typecheck": "pnpm -r --if-present typecheck",
-    "db:migrate": "pnpm --filter @ordering/server --if-present db:migrate",
+    "db:migrate": "pnpm --filter @ordering/server db:migrate",
+    "db:seed": "pnpm --filter @ordering/server db:seed",
     "loadtest": "k6 run deploy/loadtest/orders.js"
   },
   "devDependencies": {

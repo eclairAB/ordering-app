@@ -1,0 +1,76 @@
+/* Staff screens: dark by default so a kitchen display is easy on the eyes and readable at a distance. */
+:root {
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --surface-2: #2a2a2a;
+  --text: #f2f2f2;
+  --muted: #9a9a9a;
+  --border: #333;
+  --brand: #c08a5b;
+  --new: #e0a100;
+  --accepted: #4a90d9;
+  --preparing: #b36ad9;
+  --ready: #2fa866;
+  --danger: #e05252;
+  color-scheme: dark;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); }
+h1, h2 { margin: 0; }
+button { font: inherit; color: inherit; cursor: pointer; }
+.muted { color: var(--muted); }
+.error { color: var(--danger); }
+.grow { flex: 1; }
+.center { min-height: 80vh; display: grid; place-content: center; text-align: center; }
+
+.button { border: 1px solid var(--border); background: var(--surface-2); border-radius: 10px; padding: 0.7rem 1rem; font-weight: 700; }
+.button-primary { background: var(--brand); color: #121212; border-color: transparent; }
+.button-ghost { background: transparent; color: var(--muted); }
+.button:disabled { opacity: 0.5; }
+
+.login { display: grid; gap: 0.9rem; width: min(320px, 90vw); }
+.login input { font: inherit; font-size: 1.4rem; text-align: center; letter-spacing: 0.3em; padding: 0.8rem; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); color: var(--text); }
+
+.shell { min-height: 100vh; display: flex; flex-direction: column; }
+.topbar { display: flex; align-items: center; gap: 1rem; padding: 0.6rem 1rem; background: var(--surface); border-bottom: 1px solid var(--border); }
+.topbar nav { display: flex; gap: 0.25rem; flex: 1; }
+.tab { background: none; border: 0; padding: 0.5rem 0.9rem; border-radius: 8px; color: var(--muted); font-weight: 600; }
+.tab-active { background: var(--surface-2); color: var(--text); }
+
+.offline, .notice { padding: 0.6rem 1rem; text-align: center; font-weight: 600; }
+.offline { background: var(--danger); }
+.notice { background: var(--surface-2); cursor: pointer; }
+
+/* Kitchen board */
+.kitchen { flex: 1; display: flex; flex-direction: column; }
+.board { flex: 1; display: grid; grid-template-columns: repeat(4, minmax(240px, 1fr)); gap: 0.75rem; padding: 0.75rem; overflow-x: auto; }
+.column { display: flex; flex-direction: column; gap: 0.6rem; min-width: 0; }
+.column h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.4rem 0.2rem; border-bottom: 4px solid var(--col); }
+.column .count { color: var(--muted); }
+.column-placed { --col: var(--new); }
+.column-accepted { --col: var(--accepted); }
+.column-preparing { --col: var(--preparing); }
+.column-ready { --col: var(--ready); }
+
+.ticket { background: var(--surface); border-radius: 12px; border-left: 6px solid var(--col); padding: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.ticket header { display: flex; align-items: baseline; gap: 0.5rem; }
+.ticket-number { font-size: 1.6rem; font-weight: 800; }
+.ticket-name { flex: 1; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ticket-age { color: var(--muted); font-variant-numeric: tabular-nums; }
+.ticket-late .ticket-age { color: var(--danger); font-weight: 700; }
+.ticket ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem; font-size: 1.05rem; }
+.ticket .mods { color: var(--muted); font-size: 0.9rem; padding-left: 1.6rem; }
+.ticket .notes { color: var(--new); font-size: 0.9rem; padding-left: 1.6rem; font-style: italic; }
+.ticket footer { display: flex; gap: 0.5rem; margin-top: 0.25rem; }
+
+/* Menu admin */
+.menu-admin { max-width: 760px; width: 100%; margin: 0 auto; padding: 1rem; }
+.menu-admin section { margin-top: 1.25rem; }
+.menu-admin ul { list-style: none; padding: 0; margin: 0.5rem 0 0; }
+.menu-admin li { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem; border-bottom: 1px solid var(--border); }
+.menu-admin img { width: 56px; height: 42px; object-fit: cover; border-radius: 6px; }
+.menu-admin .sold-out img { filter: grayscale(1); opacity: 0.5; }
+.switch { display: flex; align-items: center; gap: 0.5rem; min-width: 8rem; justify-content: flex-end; }
+.switch input { width: 1.3rem; height: 1.3rem; accent-color: var(--ready); }

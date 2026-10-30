@@ -39,8 +39,11 @@ export type ModifierGroup = z.infer<typeof ModifierGroup>;
 export const MenuItem = z.object({
   id: Id,
   name: z.string().min(1),
+  description: z.string(),
   priceCentavos: NonNegativeCentavosSchema,
   categoryId: Id,
+  /** Served by the local server (e.g. "/images/menu/latte.svg"), never a remote URL. */
+  imageUrl: z.string().nullable(),
   available: z.boolean(),
   sort: z.number().int(),
   modifierGroups: z.array(ModifierGroup),
@@ -109,16 +112,30 @@ export const Order = z.object({
   status: OrderStatusSchema,
   tableOrName: z.string(),
   totalCentavos: NonNegativeCentavosSchema,
-  // ISO-8601 with "Z"; the server converts SQLite's "YYYY-MM-DD HH:MM:SS" before returning.
+  // ISO-8601 UTC with "Z" (stored as such by the server).
   createdAt: z.iso.datetime(),
   updatedAt: z.iso.datetime(),
   lines: z.array(OrderLine),
 });
 export type Order = z.infer<typeof Order>;
 
-/** Body for the staff-only status change endpoint. */
-export const TransitionOrderBody = z.strictObject({ to: OrderStatusSchema });
+/**
+ * Body for the staff-only status change endpoint. `from` is the status the screen
+ * last saw; if another screen already moved the order, the server returns 409.
+ */
+export const TransitionOrderBody = z.strictObject({
+  to: OrderStatusSchema,
+  from: OrderStatusSchema.optional(),
+});
 export type TransitionOrderBody = z.infer<typeof TransitionOrderBody>;
+
+// ---- Staff ----
+
+export const StaffLoginBody = z.strictObject({ passcode: z.string().min(1).max(64) });
+export type StaffLoginBody = z.infer<typeof StaffLoginBody>;
+
+export const UpdateMenuItemBody = z.strictObject({ available: z.boolean() });
+export type UpdateMenuItemBody = z.infer<typeof UpdateMenuItemBody>;
 
 // ---- Errors ----
 
