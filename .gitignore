@@ -1,0 +1,25 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# SQLite database and WAL side files (never commit)
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+data/
+backups/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Local Claude settings
+.claude/settings.local.json
+
+.DS_Store

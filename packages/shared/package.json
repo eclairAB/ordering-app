@@ -1,0 +1,19 @@
+{
+  "name": "@ordering/shared",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./money": "./money.ts",
+    "./schemas": "./schemas.ts",
+    "./order-status": "./order-status.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^4.6.7"
+  }
+}
