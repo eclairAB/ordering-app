@@ -231,6 +231,10 @@ button:disabled { cursor: not-allowed; }
 .progress { display: grid; grid-template-columns: repeat(4, 1fr); list-style: none; padding: 0; margin: 1.5rem 0; gap: 0.35rem; font-size: 0.8rem; color: var(--muted); }
 .progress li { border-top: 5px solid var(--border); padding-top: 0.4rem; border-radius: 2px; }
 .progress .progress-done { border-color: var(--accent); color: var(--text); font-weight: 600; }
+.thank-you { margin: 0.5rem 0 1.5rem; animation: rise 0.4s ease-out; }
+.thank-you img { width: min(240px, 70%); margin: 0 auto 1rem; }
+.thank-you h1 { font-size: 2rem; color: var(--accent); }
+.button-large { display: block; width: 100%; margin-top: 1.5rem; padding: 1.15rem 1.5rem; font-size: 1.2rem; }
 .receipt { text-align: left; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
 .receipt ul { list-style: none; padding: 0; margin: 0.75rem 0 0; }
 .receipt li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.4rem 0; }

@@ -78,7 +78,7 @@ export function MenuView({ menu, error, onRetry, onSelect, recentOrderId, onOpen
                   {item.imageUrl && <img src={item.imageUrl} alt="" loading="lazy" />}
                   <span className="item-name">{item.name}</span>
                   <span className="item-price">
-                    {item.available ? formatCentavos(item.priceCentavos) : 'Sold out'}
+                    {item.available ? formatCentavos(item.priceCentavos) : 'Unavailable'}
                   </span>
                 </button>
               ))}

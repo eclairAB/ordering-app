@@ -15,7 +15,8 @@
     "typecheck": "pnpm -r --if-present typecheck",
     "db:migrate": "pnpm --filter @ordering/server db:migrate",
     "db:seed": "pnpm --filter @ordering/server db:seed",
-    "loadtest": "k6 run deploy/loadtest/orders.js"
+    "loadtest": "k6 run deploy/loadtest/orders.js",
+    "release": "bash deploy/release.sh"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -23,3 +23,6 @@ backups/
 .claude/settings.local.json
 
 .DS_Store
+
+# Release bundles (published to gh-pages, not main)
+release/

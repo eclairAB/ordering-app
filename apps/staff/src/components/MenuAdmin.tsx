@@ -49,12 +49,12 @@ export function MenuAdmin({ onUnauthorized }: { onUnauthorized: () => void }) {
                     <span className="muted"> · {formatCentavos(item.priceCentavos)}</span>
                   </span>
                   <label className="switch">
+                    <span>{item.available ? 'Available' : 'Unavailable'}</span>
                     <input
                       type="checkbox"
                       checked={item.available}
                       onChange={(e) => void toggle(item.id, e.target.checked)}
                     />
-                    <span>{item.available ? 'Available' : 'Sold out'}</span>
                   </label>
                 </li>
               ))}
